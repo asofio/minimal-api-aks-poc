@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "OoiK4o9T3RB6nkQbVuQQVwD5T+/u24n8EaZ8oEBV940=",
+  "Source": "minimal-api-aks-poc",
+  "BasePath": "_content/minimal-api-aks-poc",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

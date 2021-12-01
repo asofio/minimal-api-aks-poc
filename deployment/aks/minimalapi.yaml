@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minimalapitest-deployment
+  labels:
+    app: minimalapitest-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: minimalapitest
+  template:
+    metadata:
+      labels:
+        app: minimalapitest
+    spec:
+      containers:
+      - name: minimalapitest
+        image: sofiominimalapipoc.azurecr.io/minimalapipoc:latest
+        ports:
+        - containerPort: 5000

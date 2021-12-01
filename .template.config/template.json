@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "[Author Name Here]",
+    "classifications": [ "MinimalAPI", "ASP.NET Core" ],
+    "identity": "MinimalAPI.Starter",
+    "name": "Minimal API Hello World Example",
+    "shortName": "minimalapistarter",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    }
+  }
