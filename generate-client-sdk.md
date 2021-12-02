@@ -20,7 +20,7 @@ At this point, you need to decide what API location you will be pointing at to g
 
 To generate an SDK from the API hosted in AKS, run the following command:
 
-`openapi-generator generate -i https://[YourKubernetesEXTERNAL-IPHere]:8080/swagger/v1/swagger.json -g csharp -o ./tmp/apisdk`
+`openapi-generator generate -i http://[YourKubernetesEXTERNAL-IPHere]:8080/swagger/v1/swagger.json -g csharp -o ./tmp/apisdk`
 
 The previous command will place the generated C# SDK in a /tmp/apidk folder relative to the current location where you ran this command.  Browse the generated SDK to learn more about what OpenAPI Generator generates for you.  Note: OpenAPI Generator also generates documentation specific to your API located in the /docs folder.
 
