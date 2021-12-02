@@ -46,9 +46,13 @@ Now, push the image to ACR
 
 Now that we have a container pushed to ACR, we can instruct AKS to pull the image and expose a service so that we can communicate with the API.
 
-Navigate to the `/deployment/aks` folder and run the following commands.
+First, run the following command to obtain the credentials for your AKS instance:
 
 `az aks get-credentials -g YourResourceGroupNameHere -n YourAKSInstanceNameHere`
+
+Navigate to the `/deployment/aks` folder and run the following commands.
+
+In the `deployment.yaml` file adjust line 19 and replace "[YourACRInstanceNameHere]" with the name of your ACR instance you deployed earlier.  After doing so, run the following commands:
 
 `kubectl apply -f deployment.yaml`
 
