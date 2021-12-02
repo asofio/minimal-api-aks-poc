@@ -17,3 +17,7 @@ If you would like to test out using the template, navigate to an empty folder an
 `dotnet new minimalapistarter`
 
 Congratulations!  You now have a templatized project you can share with teammates and re-use.
+
+## Next
+
+Next, lets take full advantage of exposing an OpenAPI specification and see what it takes to [generate a client SDK](generate-client-sdk.md) for the API.
