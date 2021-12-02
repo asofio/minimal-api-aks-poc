@@ -61,3 +61,7 @@ Use `kubectl get pods` to monitor the deployment of the image to AKS.  Also, exe
 The IP address you see under EXTERNAL-IP (yours will differ from what is shown) is what we will use to ensure that our image has been pulled and is successfully running in AKS.  In a browser window, visit the following address: `http://[YourExternalIPHere]:8080/`
 
 Congratulations!  You have now deployed a .NET 6 Minimal API to AKS!
+
+## Next
+
+Lets create the ability to re-use this API by [creating a dotnet new template](dotnet-new-template.md).
