@@ -60,11 +60,18 @@ While there are a few philosophies for how to best organize functionality within
 
 ### Inventory Feature
 
-The Inventory feature is a straightforward Carter Module that contains one endpoint.  Notice that `InventoryModule` implements `ICarterModule`.  This interface presents us with the opportunity to implement the `AddRoutes` method where we can register our API endpoints.  Remember `app.MapCarter();` from Programs.cs? Because we have provided an implementation of an `ICarterModule` within this same assesmbly, anything defined with `AddRoutes()` will be auto-discovered and served up as an API endpoint.
+The Inventory feature is a straightforward Carter Module that contains one endpoint.  Notice that `InventoryModule` implements `ICarterModule`.  This interface presents us with the opportunity to implement the `AddRoutes()` method where we can register our API endpoints.  Remember `app.MapCarter();` from Programs.cs? Because we have provided an implementation of an `ICarterModule` within this same assesmbly, anything defined within `AddRoutes()` will be auto-discovered and served up as an API endpoint.
+
+`app.MapGet("/inventory", GetInventory).WithTags("Inventory");`
+
+This line will serve up an API endpoint at `/inventory` that will call the `GetInventory` method.  `.WithTags("Inventory")` allows us to take advantage of some built-in OpenAPI classification features within Minimal API.  To see this in use, take another look at the Swagger/OpenAPI UI that is shown when launching the API.  You will see that this `/inventory` endpoint is classified under the **Inventory** category.
 
 ### Orders Feature
 
+The Orders feature is implemented as a Carter Module as well.  Take a minute to look over the functionality within this module.  You will notice that this module uses an implementation of `IOrderService` (which was registered in Program.cs) that provides a simple caching mechanism for demonstration purposes.  A few things of note:
 
+- `.WithName` is used to assign a name to a few endpoints.  This is used to provide a convenient mechanism for generating links within the API.  Notice this usage within the `NewOrder` method.
+- You likely noticed an additional folder within the **Orders** feature folder named **Validators**.  This folder contains some reusable FluentValidation validators.  You can see these validators being used throughout the `OrdersModule`.
 
 ## Deploy to AKS
 
