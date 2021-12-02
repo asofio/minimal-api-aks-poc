@@ -1,5 +1,5 @@
-param containerRegistryName string = 'sofiominimalapipoc'
-param aksName string = 'sofiominimalaks'
+param containerRegistryName string = '[YourACRNameHere]'
+param aksName string = '[YourAKSNameHere]'
 
 
 resource containerRegistry 'Microsoft.ContainerRegistry/registries@2021-06-01-preview' = {
