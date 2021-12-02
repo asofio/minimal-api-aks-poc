@@ -26,7 +26,7 @@ The next step in deploying the API to Azure will be to containerize it.  Before 
 
 Navigate to the root of the VSCode project and run the following command to containerize the API.  This command will build a docker image and tag it so that it can be pushed to our ACR instance.  In the command below, fill in the name of your ACR resource.
 
-`docker build -t sofiocr.azurecr.io/minimalapipoc -f Dockerfile .`
+`docker build -t YourACRResourceNameHere.azurecr.io/minimalapipoc -f Dockerfile .`
 
 Congratulations! You now have an image that is ready to be pushed to ACR. (Run `docker images` to see your newly created image.)
 
