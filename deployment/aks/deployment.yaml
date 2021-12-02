@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: minimalapiakspoc
-        image: sofiominimalapipoc.azurecr.io/minimalapipoc:latest
+        image: [YourACRInstanceNameHere].azurecr.io/minimalapipoc:latest
         ports:
         - containerPort: 5000
