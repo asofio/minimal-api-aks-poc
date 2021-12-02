@@ -1,4 +1,4 @@
-## Deploy to AKS
+# Deploy to AKS
 
 Now, lets take some steps to deploy this API to Azure Kubernetes Service.
 
