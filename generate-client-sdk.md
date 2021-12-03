@@ -16,19 +16,21 @@ NOTE: If you are running on OSX and are a hombrew user, you can execute the foll
 
 At this point, you need to decide what API location you will be pointing at to generate your SDK.  Meaning, in this sample repository, we have run the Minimal API both locally and in AKS.  You can generate a client SDK from either.  You will be utilizing the swagger.json endpoint of the exposed OpenAPI specification on your API.
 
+Before running any of the `generate` commands below, create a directory to write the sdk to.  In the example below, a "tmp" folder is used.
+
 #### API Hosted in AKS
 
 To generate an SDK from the API hosted in AKS, run the following command:
 
-`openapi-generator generate -i http://[YourKubernetesEXTERNAL-IPHere]:8080/swagger/v1/swagger.json -g csharp -o ./tmp/apisdk`
+`openapi-generator generate -i http://[YourKubernetesEXTERNAL-IPHere]:8080/swagger/v1/swagger.json -g csharp -o ./tmp`
 
-The previous command will place the generated C# SDK in a /tmp/apidk folder relative to the current location where you ran this command.  Browse the generated SDK to learn more about what OpenAPI Generator generates for you.  Note: OpenAPI Generator also generates documentation specific to your API located in the /docs folder.
+The previous command will place the generated C# SDK in a /tmp folder relative to the current location where you ran this command.  Browse the generated SDK to learn more about what OpenAPI Generator generates for you.  Note: OpenAPI Generator also generates documentation specific to your API located in the /docs folder.
 
 #### API Hosted Locally
 
 To generate an SDK while running the API locally, run the following command (fill in the port that your API is running on):
 
-`openapi-generator generate -i https://localhost:[YourPortHere]/swagger/v1/swagger.json -g csharp -o ./tmp/apisdk`
+`openapi-generator generate -i https://localhost:[YourPortHere]/swagger/v1/swagger.json -g csharp -o ./tmp`
 
 NOTE: If you encounter an error indicating a SSHHandshakeException, you will need to temporarily disable certificate verification by adjusting the following environment variable. *Please remember to undo this operation when finished with generating a client SDK. Meaning, set this value back to false.*
 
@@ -40,6 +42,7 @@ OSX
 
 `export JAVA_OPTS="-Dio.swagger.parser.util.RemoteUrl.trustAll=true -Dio.swagger.v3.parser.util.RemoteUrl.trustAll=true"`
 
-### Additional Information
+## Additional Resources
 
-The above examples generate C# client SDKs, however, the OpenAPI Generator can generate SDKs in many more languages.  Please reference [this documentation](https://openapi-generator.tech/docs/generators/) for further information.
+- The above examples generate C# client SDKs, however, the OpenAPI Generator can generate SDKs in many more languages.  Please reference [this documentation](https://openapi-generator.tech/docs/generators/) for further information.
+- [OpenAPI Generator on GitHub](https://github.com/OpenAPITools/openapi-generator)

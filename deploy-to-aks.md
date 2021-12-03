@@ -12,7 +12,7 @@ Within your Azure subscription, ensure that you have a resource group that you c
 
 NOTE: Ensure that you have logged in using `az login` and that you are pointed at your desired subscription using `az account list -o table`.  Use `az account set --subscription <name or id here>` to switch subscriptions.
 
-Next, make two small adjustments to the parameters within the deployment.bicep file.  Within VSCode, open the /deployment/deployment.bicep file and fill in values for the two parameters you see.  This will be the resource name for the AKS and Azure Container Registry (ACR) resources that the bicep script will create.
+Next, make two small adjustments to the parameters within the deployment.bicep file.  Within VS Code, open the /deployment/deployment.bicep file and fill in values for the two parameters you see.  This will be the resource name for the AKS and Azure Container Registry (ACR) resources that the bicep script will create.
 
 Now, execute the bicep script by navigating to the `deployment` folder and running the following command:
 
@@ -62,7 +62,7 @@ First, run the following command to obtain the credentials for your AKS instance
 
 `az aks get-credentials -g YourResourceGroupNameHere -n YourAKSInstanceNameHere`
 
-Navigate to the `/deployment/aks` folder and run the following commands.
+Navigate to the `/deployment/aks` folder and do the following:
 
 In the `deployment.yaml` file adjust line 19 and replace "[YourACRInstanceNameHere]" with the name of your ACR instance you deployed earlier.  After doing so, run the following commands:
 
@@ -77,6 +77,12 @@ Use `kubectl get pods` to monitor the deployment of the image to AKS.  Also, exe
 The IP address you see under EXTERNAL-IP (yours will differ from what is shown) is what we will use to ensure that our image has been pulled and is successfully running in AKS.  In a browser window, visit the following address: `http://[YourExternalIPHere]:8080/`
 
 Congratulations!  You have now deployed a .NET 6 Minimal API to AKS!
+
+## Additional Resources
+
+- [AKS Documentation](https://docs.microsoft.com/en-us/azure/aks/)
+- [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/)
+- [Introduction to Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
 
 ## Next
 
