@@ -73,6 +73,10 @@ The Orders feature is implemented as a Carter Module as well.  Take a minute to 
 - `.WithName` is used to assign a name to a few endpoints.  This is used to provide a convenient mechanism for generating links within the API.  Notice this usage within the `NewOrder` method.
 - You likely noticed an additional folder within the **Orders** feature folder named **Validators**.  This folder contains some reusable FluentValidation validators.  You can see these validators being used throughout the `OrdersModule`.
 
+## Additional Resources
+
+- [Minimal API Example](https://docs.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-6.0&tabs=visual-studio)
+
 ## Next
 
 Now that you have run the API locally, lets [deploy it to AKS](deploy-to-aks.md).
