@@ -78,6 +78,12 @@ The IP address you see under EXTERNAL-IP (yours will differ from what is shown) 
 
 Congratulations!  You have now deployed a .NET 6 Minimal API to AKS!
 
+## Additional Resources
+
+- [AKS Documentation](https://docs.microsoft.com/en-us/azure/aks/)
+- [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/)
+- [Introduction to Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
+
 ## Next
 
 Lets create the ability to re-use this API by [creating a dotnet new template](dotnet-new-template.md).
