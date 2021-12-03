@@ -29,8 +29,8 @@ Clone this repository and open the cloned folder in VS Code.  Upon opening the p
 - **.template.config**
   - This will be important when you create a 'dotnet new' template using this code base.  More on that later...
 - **deployment**
-  - This folder contains the bicep script that we will use later to stand up some Azure infrastructure for deploying this Minimal API to AKS.
-  - Within this folder you will also find some yaml defining our kubernetes deployment and service.
+  - This folder contains the bicep script that we will use to stand up some Azure infrastructure for deploying this Minimal API to AKS.
+  - Within this folder you will also find yaml defining our kubernetes deployment and service.
 - **Features and Shared folders**
   - We will talk more about the contents of these folders in just a moment when we cover the topic of organizing functionality within a Minimal API.  While it might be fun to have 1,000 lines of code in your Program.cs representing all of the endpoints of your Minimal API, we'll bring some sanity to the world by breaking out functionality in to more maintainable chunks.
 - **Dockerfile**
@@ -45,7 +45,7 @@ At this point, open Program.cs and take a minute to familiarize yourself with it
 - There are a few external dependencies we have brought in:
   - [FluentValidation](https://fluentvalidation.net/) is brought in to help with various validation needs throughout the API.  Minimal API does not come packaged with any built-in validation mechanisms, however, FluentValidation is a tried-and-true, community accepted, validation mechanism.
   - [Carter](https://github.com/CarterCommunity/Carter) is being used to help bring some additional organization to the functionality within the API.  For the purposes of this example, you will find some endpoints represented directly in Program.cs as well as some endpoints that exist within Carter Modules.  The endpoints that exist in Program.cs serve the purpose of showing just how easily it is to begin developing functionality using .NET 6 Minimal APIs.  That said, carry this path forward in your mind and you will see that you could, potentially, end up with an unwieldy, lengthy and unmaintainable Program.cs.  Carter aims to solve this issue by making it easy to segment your functionality away from the main entry point in Program.cs.
-  - Swagger/OpenAPI is registered as a service and is then used to expose an OpenAPI endpoint for end users to explore our API.
+  - [Swagger/OpenAPI](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-6.0) is registered as a service and is then used to expose an OpenAPI endpoint for end users to explore our API.
   - Application Insights has been brought in to provide full telemetry logging across the API.
 - `app.MapCarter();` is all that is needed to trigger a scan of the current assembly to discover any Carter Modules that exist. 
 - The "Hello, World!"-style endpoints you find in Program.cs leave you with an example of some very simple endpoints.
