@@ -42,6 +42,7 @@ OSX
 
 `export JAVA_OPTS="-Dio.swagger.parser.util.RemoteUrl.trustAll=true -Dio.swagger.v3.parser.util.RemoteUrl.trustAll=true"`
 
-### Additional Information
+## Additional Resources
 
-The above examples generate C# client SDKs, however, the OpenAPI Generator can generate SDKs in many more languages.  Please reference [this documentation](https://openapi-generator.tech/docs/generators/) for further information.
+- The above examples generate C# client SDKs, however, the OpenAPI Generator can generate SDKs in many more languages.  Please reference [this documentation](https://openapi-generator.tech/docs/generators/) for further information.
+- [OpenAPI Generator on GitHub](https://github.com/OpenAPITools/openapi-generator)
