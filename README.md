@@ -60,7 +60,7 @@ While there are a few philosophies for how to best organize functionality within
 
 ### Inventory Feature
 
-The Inventory feature is a straightforward Carter Module that contains one endpoint.  Notice that `InventoryModule` implements `ICarterModule`.  This interface presents us with the opportunity to implement the `AddRoutes()` method where we can register our API endpoints.  Remember `app.MapCarter();` from Programs.cs? Because we have provided an implementation of an `ICarterModule` within this same assesmbly, anything defined within `AddRoutes()` will be auto-discovered and served up as an API endpoint.
+The Inventory feature is a straightforward Carter Module that contains one endpoint.  Notice that `InventoryModule` implements `ICarterModule`.  This interface presents us with the opportunity to implement the `AddRoutes()` method where we can register our API endpoints.  Remember `app.MapCarter();` from Programs.cs? Because we have provided an implementation of an `ICarterModule` within this same assembly, anything defined within `AddRoutes()` will be auto-discovered and served up as an API endpoint.
 
 `app.MapGet("/inventory", GetInventory).WithTags("Inventory");`
 
