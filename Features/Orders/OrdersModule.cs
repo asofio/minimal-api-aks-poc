@@ -2,6 +2,7 @@ using Carter;
 using FluentValidation;
 using FluentValidation.Results;
 using minimalApiAksPoc.Features.Orders.Models;
+using minimalApiAksPoc.Features.Orders.Services;
 using minimalApiAksPoc.Shared.Extensions;
 using Newtonsoft.Json;
 

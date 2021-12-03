@@ -1,4 +1,6 @@
-namespace minimalApiAksPoc.Features.Orders.Models
+using minimalApiAksPoc.Features.Orders.Models;
+
+namespace minimalApiAksPoc.Features.Orders.Services
 {
     public interface IOrderService
     {

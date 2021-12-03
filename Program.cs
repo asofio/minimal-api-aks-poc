@@ -1,6 +1,6 @@
 using Carter;
 using FluentValidation.AspNetCore;
-using minimalApiAksPoc.Features.Orders.Models;
+using minimalApiAksPoc.Features.Orders.Services;
 using minimalApiAksPoc.Features.Orders.Validators;
 
 var builder = WebApplication.CreateBuilder(args);

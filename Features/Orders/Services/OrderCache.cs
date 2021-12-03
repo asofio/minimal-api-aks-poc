@@ -1,6 +1,6 @@
 using minimalApiAksPoc.Features.Orders.Models;
 
-namespace minimalApiAksPoc.Features.Orders.Models
+namespace minimalApiAksPoc.Features.Orders.Services
 {
     public class OrderCache : IOrderService
     {
