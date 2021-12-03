@@ -22,7 +22,7 @@ With the release of .NET 6 comes the ability for API developers to create true "
 
 ## Getting Started
 
-Clone this repository and open the cloned folder in VSCode.  Upon opening the project, go ahead and restore any dependencies as VS Code prompts you to do so.  Before diving in too deep, lets take a tour of the project structure:
+Clone this repository and open the cloned folder in VS Code.  Upon opening the project, go ahead and restore any dependencies as VS Code prompts you to do so.  Before diving in too deep, lets take a tour of the project structure:
 
 ![Source Files](/assets/project-organization.png)
 
