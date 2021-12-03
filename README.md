@@ -13,7 +13,7 @@ With the release of .NET 6 comes the ability for API developers to create true "
 
 ## Prerequisites
 
-- [VSCode](https://code.visualstudio.com/download)
+- [VS Code](https://code.visualstudio.com/download)
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 - Azure Subscription (if you would like to try out deploying to AKS)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli#install)
@@ -22,7 +22,7 @@ With the release of .NET 6 comes the ability for API developers to create true "
 
 ## Getting Started
 
-Clone this repository and open the cloned folder in VSCode.  Upon opening the project, go ahead and restore any dependencies as VSCode prompts you to do so.  Before diving in too deep, lets take a tour of the project structure:
+Clone this repository and open the cloned folder in VSCode.  Upon opening the project, go ahead and restore any dependencies as VS Code prompts you to do so.  Before diving in too deep, lets take a tour of the project structure:
 
 ![Source Files](/assets/project-organization.png)
 
@@ -50,7 +50,7 @@ At this point, open Program.cs and take a minute to familiarize yourself with it
 - `app.MapCarter();` is all that is needed to trigger a scan of the current assembly to discover any Carter Modules that exist. 
 - The "Hello, World!"-style endpoints you find in Program.cs leave you with an example of some very simple endpoints.
 
-Go ahead and run the API (F5 or switch over to the "Run and Debug" screen in VSCode).  Upon successful build and run of the API, you should be presented with the Swagger/OpenAPI UI where you can test out a few of the endpoints.
+Go ahead and run the API (F5 or switch over to the "Run and Debug" screen in VS Code).  Upon successful build and run of the API, you should be presented with the Swagger/OpenAPI UI where you can test out a few of the endpoints.
 
 ## Organizing Functionality
 
