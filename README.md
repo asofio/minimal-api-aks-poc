@@ -29,7 +29,7 @@ Clone this repository and open the cloned folder in VS Code.  Upon opening the p
 - **.template.config**
   - This will be important when you create a 'dotnet new' template using this code base.  More on that later...
 - **deployment**
-  - This folder contains the bicep script that we will use later to stand up some Azure infrastructure for deploying this Minimal API to AKS
+  - This folder contains the bicep script that we will use later to stand up some Azure infrastructure for deploying this Minimal API to AKS.
   - Within this folder you will also find some yaml defining our kubernetes deployment and service.
 - **Features and Shared folders**
   - We will talk more about the contents of these folders in just a moment when we cover the topic of organizing functionality within a Minimal API.  While it might be fun to have 1,000 lines of code in your Program.cs representing all of the endpoints of your Minimal API, we'll bring some sanity to the world by breaking out functionality in to more maintainable chunks.
