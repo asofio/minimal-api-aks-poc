@@ -18,7 +18,17 @@ Now, execute the bicep script by navigating to the `deployment` folder and runni
 
 `az deployment group create --resource-group YourResourceGroupNameHere --template-file deployment.bicep`
 
+### What is this creating?
+
+This script will perform three main actions:
+
+1. The Azure Container Registry (ACR) instance will be created.
+2. A simple Azure Kubernetes Service (AKS) cluster will be created.
+3. The managed identity of the AKS cluster is given authority to pull images from ACR.  This is incredibly important for an upcoming step in which we will apply a deployment to the AKS cluster.
+
 Take a quick break while the deployment runs.  Upon completion, navigate to your resource group in the azure portal and ensure that you see both an AKS and ACR resource.
+
+<br>
 
 ### Containerize the API
 
@@ -29,6 +39,8 @@ Navigate to the root of the VSCode project and run the following command to cont
 `docker build -t YourACRResourceNameHere.azurecr.io/minimalapipoc -f Dockerfile .`
 
 Congratulations! You now have an image that is ready to be pushed to ACR. (Run `docker images` to see your newly created image.)
+
+<br>
 
 ### Push Container to Azure Container Registry (ACR) 
 
@@ -41,6 +53,8 @@ First, login to the ACR instance.
 Now, push the image to ACR
 
 `docker push YourACRResourceNameHere.azurecr.io/minimalapipoc`
+
+<br>
 
 ### Test the API in AKS
 
