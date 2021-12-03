@@ -76,6 +76,10 @@ The Orders feature is implemented as a Carter Module as well.  Take a minute to 
 ## Additional Resources
 
 - [Minimal API Example](https://docs.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-6.0&tabs=visual-studio)
+- Helpful community resources:
+  - [From MVC to Minimal APIs with ASP.NET Core 6.0 by Ben Foster](https://benfoster.io/blog/mvc-to-minimal-apis-aspnet-6/)
+  - [Minimal APIs at a glance by David Fowler](https://gist.github.com/davidfowl/ff1addd02d239d2d26f4648a06158727)
+  - [Todo Minimal API with Tests by David Fowler](https://github.com/davidfowl/CommunityStandUpMinimalAPI)
 
 ## Next
 
