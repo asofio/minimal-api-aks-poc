@@ -54,12 +54,13 @@ az acr build --registry $ACR_NAME --image minimalapipoc --platform linux .
 ```
 
 >*Note:* You could also build the image locally and push to ACR using the following commands <br>
-<br>
-docker build -t $ACR_NAME.azurecr.io/minimalapipoc -f Dockerfile . <br>
-az acr login --name $ACR_NAME.azurecr.io <br>
+```bash
+docker build -t $ACR_NAME.azurecr.io/minimalapipoc -f Dockerfile .
+az acr login --name $ACR_NAME.azurecr.io
 docker push $ACR_NAME.azurecr.io/minimalapipoc
+```
 
-Congratulations! You now have an image that is ready ready in your ACR. (You can go out to the Azure Portal and have a look at your container registry to see the newly built image)
+Congratulations! You now have an image that is ready to use in your ACR. (You can go out to the Azure Portal and have a look at your container registry to see the newly built image)
 
 ### Test the API in AKS
 
@@ -95,7 +96,7 @@ pod/minimalapiakspoc-deployment-7cb8bc6b55-mqhcl   1/1     Running   0          
 pod/minimalapiakspoc-deployment-7cb8bc6b55-p9nrr   1/1     Running   0          104s
 ```
 
-Use `kubectl get pods` to monitor the deployment of the image to AKS.  Also, execute `kubectl get svc` to look up the external IP that was assigned to the service that was just deployed.  You should see something like this:
+Use `kubectl get pods` to monitor the deployment of the image to AKS.  Execute `kubectl get svc` to look up the external IP that was assigned to the service that was just deployed.  You should see something like this:
 
 ![Kubernetes Service](/assets/service.png)
 
