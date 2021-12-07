@@ -37,7 +37,7 @@ app.UseSwaggerUI(options =>
 app.MapCarter();
 
 app.MapGet("/hello", () => "Hello World from .NET 6 minimal API!")
-   .WithTags("Hello");
+.WithTags("Hello");
 
 app.MapGet("/hello/personal/{name}", (string name, ILogger<WebApplication> log) => {
     log.LogInformation($"Hello {name}!");
