@@ -32,7 +32,7 @@ To generate an SDK while running the API locally, run the following command (fil
 
 `openapi-generator generate -i https://localhost:[YourPortHere]/swagger/v1/swagger.json -g csharp -o ./tmp`
 
-NOTE: If you encounter an error indicating a SSHHandshakeException, you will need to temporarily disable certificate verification by adjusting the following environment variable. *Please remember to undo this operation when finished with generating a client SDK. Meaning, set this value back to false.*
+>NOTE: If you encounter an error indicating a SSHHandshakeException, you will need to temporarily disable certificate verification by adjusting the following environment variable. *Please remember to undo this operation when finished with generating a client SDK. Meaning, set this value back to false.*
 
 Windows/Powershell
 
