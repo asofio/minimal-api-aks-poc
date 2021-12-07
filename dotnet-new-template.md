@@ -8,7 +8,7 @@ To install a new template, navigate to the root of the API project (meaning, one
 
 `dotnet new --install .\`
 
-NOTE: If you are running on OSX the command would look like this: `dotnet new --install ./`
+>NOTE: If you are running on OSX the command would look like this: `dotnet new --install ./`
 
 A new template will now exist in `dotnet new` that will contain the contents of the current API project.  You can check that the template has been installed by executing `dotnet new --list`.  You should see a template named **minimalapistarter** (as it was named in the template.json file).
 
