@@ -4,6 +4,10 @@
 
 With the release of .NET 6 comes the ability for API developers to create true "minimal" APIs in .NET.  This repo serves as an example that will introduce you to .NET 6 Minimal APIs in a simple, straightforward way.  As you work your way through the content below, you will also be guided through taking this simple API and deploying it to Azure Kubernetes Service (AKS) as well as a few other topics to help you get fully up and running using Minimal APIs.
 
+### But first, what is a "minimal" API?
+
+A minimal API is an api that contains the minimum set of dependencies needed to build and run HTTP API endpoints.  This mode of operating is quite different from, say, ASP.NET Core MVC in which one shows up to a starter project and is presented with a full-fledged framework upon which to begin building an API.  Minimal API prompts the API creator to bring in only those dependencies that are necessary for the given circumstances.
+
 ## Goals
 
 - Run your first .NET 6 Minimal API
