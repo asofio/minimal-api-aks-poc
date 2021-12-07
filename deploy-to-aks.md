@@ -8,15 +8,28 @@ First, create the necessary Azure infrastructure to be able to deploy the API to
 
 Within your Azure subscription, ensure that you have a resource group that you can deploy to.  Either create one manually through the portal or execute the following az cli command:
 
-`az group create --name YourResourceGroupNameHere --location eastus`
+```bash
+# First set up some environment variables to reuse later
+RESOURCE_GROUP=<YourResourceGroupNameHere>
+LOCATION=eastus
+ACR_NAME=<YourAcrName>
+CLUSTER_NAME=<YourClusterName>
 
-NOTE: Ensure that you have logged in using `az login` and that you are pointed at your desired subscription using `az account list -o table`.  Use `az account set --subscription <name or id here>` to switch subscriptions.
+az group create --name $RESOURCE_GROUP --location $LOCATION
+```
 
-Next, make two small adjustments to the parameters within the deployment.bicep file.  Within VS Code, open the /deployment/deployment.bicep file and fill in values for the two parameters you see.  This will be the resource name for the AKS and Azure Container Registry (ACR) resources that the bicep script will create.
+
+>*NOTE:* Ensure that you have logged in using `az login` and that you are pointed at your desired subscription using `az account list -o table`.  Use `az account set --subscription <name or id here>` to switch subscriptions.
 
 Now, execute the bicep script by navigating to the `deployment` folder and running the following command:
 
-`az deployment group create --resource-group YourResourceGroupNameHere --template-file deployment.bicep`
+```bash
+az deployment group create \
+--resource-group $RESOURCE_GROUP \
+--template-file deployment.bicep \
+--parameters containerRegistryName=$ACR_NAME \
+aksName=$CLUSTER_NAME
+```
 
 ### What is this creating?
 
@@ -34,25 +47,19 @@ Take a quick break while the deployment runs.  Upon completion, navigate to your
 
 The next step in deploying the API to Azure will be to containerize it.  Before performing this step, ensure that Docker is running.
 
-Navigate to the root of the VS Code project and run the following command to create a container image of the API.  This command will build a docker image and tag it so that it can be pushed to our ACR instance.  In the command below, fill in the name of your ACR resource:
+Navigate to the root of the VS Code project and run the following command to use Azure Container Registry to build your image.
 
-`docker build -t YourACRResourceNameHere.azurecr.io/minimalapipoc -f Dockerfile .`
+```bash
+az acr build --registry $ACR_NAME --image minimalapipoc --platform linux .
+```
 
-Congratulations! You now have an image that is ready to be pushed to ACR. (Run `docker images` to see your newly created image.)
-
+>*Note:* You could also build the image locally and push to ACR using the following commands <br>
 <br>
+docker build -t $ACR_NAME.azurecr.io/minimalapipoc -f Dockerfile . <br>
+az acr login --name $ACR_NAME.azurecr.io <br>
+docker push $ACR_NAME.azurecr.io/minimalapipoc
 
-### Push Container Image to Azure Container Registry (ACR) 
-
-First, login to the ACR instance:
-
-`az acr login --name YourACRResourceNameHere.azurecr.io `
-
-Now, push the image to ACR:
-
-`docker push YourACRResourceNameHere.azurecr.io/minimalapipoc`
-
-<br>
+Congratulations! You now have an image that is ready ready in your ACR. (You can go out to the Azure Portal and have a look at your container registry to see the newly built image)
 
 ### Test the API in AKS
 
@@ -60,15 +67,33 @@ Now that we have a container pushed to ACR, we can instruct AKS to pull the imag
 
 First, run the following command to obtain the credentials for your AKS instance:
 
-`az aks get-credentials -g YourResourceGroupNameHere -n YourAKSInstanceNameHere`
+```bash
+az aks get-credentials -g $RESOURCE_GROUP -n $CLUSTER_NAME
+```
 
-Navigate to the `/deployment/aks` folder and do the following:
+Navigate to the `/deployment/manifests` folder and do the following:
 
 In the `deployment.yaml` file adjust line 19 and replace "[YourACRInstanceNameHere]" with the name of your ACR instance you deployed earlier.  After doing so, run the following commands:
 
-`kubectl apply -f deployment.yaml`
+```bash
+# Create the deployment
+kubectl apply -f deployment.yaml
 
-`kubectl apply -f service.yaml`
+# Expose your deployment as a service
+kubectl apply -f service.yaml
+
+# Watch the service and pods come online
+watch kubectl get svc,pods
+
+# Example Output
+NAME                               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)          AGE
+service/kubernetes                 ClusterIP      10.0.0.1      <none>          443/TCP          31m
+service/minimalapiakspoc-service   LoadBalancer   10.0.84.126   52.150.42.173   8080:30757/TCP   98s
+
+NAME                                               READY   STATUS    RESTARTS   AGE
+pod/minimalapiakspoc-deployment-7cb8bc6b55-mqhcl   1/1     Running   0          104s
+pod/minimalapiakspoc-deployment-7cb8bc6b55-p9nrr   1/1     Running   0          104s
+```
 
 Use `kubectl get pods` to monitor the deployment of the image to AKS.  Also, execute `kubectl get svc` to look up the external IP that was assigned to the service that was just deployed.  You should see something like this:
 
