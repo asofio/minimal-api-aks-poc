@@ -54,10 +54,11 @@ az acr build --registry $ACR_NAME --image minimalapipoc --platform linux .
 ```
 
 >*Note:* You could also build the image locally and push to ACR using the following commands <br>
-<br>
-docker build -t $ACR_NAME.azurecr.io/minimalapipoc -f Dockerfile . <br>
-az acr login --name $ACR_NAME.azurecr.io <br>
+```bash
+docker build -t $ACR_NAME.azurecr.io/minimalapipoc -f Dockerfile .
+az acr login --name $ACR_NAME.azurecr.io
 docker push $ACR_NAME.azurecr.io/minimalapipoc
+```
 
 Congratulations! You now have an image that is ready to use in your ACR. (You can go out to the Azure Portal and have a look at your container registry to see the newly built image)
 
