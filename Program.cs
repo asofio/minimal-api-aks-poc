@@ -17,6 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<OrderValidator>());
 builder.Services.AddSingleton<IOrderService, OrderCache>();
 builder.Logging.AddApplicationInsights();
+
 var app = builder.Build();
 
 app.Lifetime.ApplicationStopping.Register(() =>
