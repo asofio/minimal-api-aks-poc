@@ -14,10 +14,10 @@ namespace minimalApiAksPoc.Features.Orders
         public void AddRoutes(IEndpointRouteBuilder app)
         {
             app.MapGet("/order/currentorders", CurrentOrders).WithName("currentorders").WithTags(ORDER_TAG);
-            app.MapGet("/order/currentorders/{id}" , GetOrder).WithName("getorder").WithTags(ORDER_TAG);
+            app.MapGet("/order/currentorders/{id:guid}" , GetOrder).WithName("getorder").WithTags(ORDER_TAG);
             app.MapPost("/order/neworder", NewOrder).WithTags(ORDER_TAG);
-            app.MapPut("/order/updateorder/{id}", UpdateOrder).WithTags(ORDER_TAG);
-            app.MapDelete("/order/completeorder/{id}", CompleteOrder).WithTags(ORDER_TAG);
+            app.MapPut("/order/updateorder/{id:guid}", UpdateOrder).WithTags(ORDER_TAG);
+            app.MapDelete("/order/completeorder/{id:guid}", CompleteOrder).WithTags(ORDER_TAG);
         }
 
         private static IResult NewOrder(IValidator<CustomerOrder> validator, CustomerOrder order, IOrderService orderService, HttpContext httpContext, LinkGenerator lg, ILogger<OrdersModule> log)
