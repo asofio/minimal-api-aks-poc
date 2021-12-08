@@ -54,4 +54,13 @@ app.MapGet("/echo", (string message, ILogger<WebApplication> log) => {
 })
 .WithTags("Echo");
 
+// Below is an example of utilizing a parameter to adjust something within a dotnet new template.
+// In the template.json file, you will find that a parameter named 'templateEndpoint' has been defined.
+// To utilize this parameter, you would execute a command similiar to the following: dotnet new minimalapistarter --templateEndpoint awesome-endpoint-name
+app.MapGet("/{templateEndpoint}-from-template", (ILogger<WebApplication> log) => {
+    log.LogInformation($"This endpoint's name was generated as a result of a dotnet new template.");
+
+    return Results.Ok();
+});
+
 app.Run();
