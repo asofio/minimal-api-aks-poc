@@ -16,11 +16,30 @@ If you would like to test out using the template, navigate to an empty folder an
 
 `dotnet new minimalapistarter`
 
+## Template Parameters
+
+An example of utilizing custom template parameters is included in the `template.json` file.  In the template, you will find a "symbol" named "templateEndpoint" that is defined.  
+
+You will see this symbol utilized in Program.cs here:
+
+`app.MapGet("/{templateEndpoint}-from-template", (ILogger<WebApplication> log) => ...`
+
+To adjust the value that lands in this templated location, execute the dotnet new command as follows:
+
+`dotnet new minimalapistarter --templateEndpoint awesomeName`
+
+This will result in the following adjustment when using `dotnet new` to create an instance of the template:
+
+`app.MapGet("/awesomeName-from-template", (ILogger<WebApplication> log) => ...`
+
+
 Congratulations!  You now have a templatized project you can share with teammates and re-use.
 
 ## Additional Resources
 
 - [Tutorial: Create a project template](https://docs.microsoft.com/en-us/dotnet/core/tutorials/cli-templates-create-project-template)
+- [Custom templates for dotnet new (includes an example of packing a template into a NuGet package)](https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates#packing-a-template-into-a-nuget-package-nupkg-file)
+- [Blog post from the community by PatridgeDev: Add variables to your custom 'dotnet new' template](https://www.patridgedev.com/2018/10/22/add-variables-to-your-custom-dotnet-new-template/)
 
 ## Next
 
